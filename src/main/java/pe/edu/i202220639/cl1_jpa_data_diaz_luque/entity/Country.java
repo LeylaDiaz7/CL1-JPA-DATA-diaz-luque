@@ -10,7 +10,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Country {
     @Id
     @Column(name = "Code")

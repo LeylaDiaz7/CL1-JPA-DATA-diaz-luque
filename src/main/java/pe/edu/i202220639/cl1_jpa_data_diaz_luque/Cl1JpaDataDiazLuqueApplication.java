@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
+@Transactional
 public class Cl1JpaDataDiazLuqueApplication implements CommandLineRunner {
 
 	@Autowired
@@ -23,7 +24,6 @@ public class Cl1JpaDataDiazLuqueApplication implements CommandLineRunner {
 	}
 
 	@Override
-	@Transactional
 	public void run(String... args) throws Exception {
 
 		/**
@@ -46,7 +46,7 @@ public class Cl1JpaDataDiazLuqueApplication implements CommandLineRunner {
 				() -> {
 					//Si no hay pais ARG, Buscar PER e imprimir sus nombres de lenguajes
 					countryRepository.findById("PER").ifPresent(country -> {
-						System.out.println("No se encontró ARG. Lenguajes en PER:");
+						System.out.println("No se encontró ARG. \n Lenguajes en PER:");
 						country.getLanguages().forEach(language ->
 								System.out.println(language.getCountryLanguagePk().getLanguage())
 						);
@@ -59,18 +59,18 @@ public class Cl1JpaDataDiazLuqueApplication implements CommandLineRunner {
 		 * Eliminar 2 países: “COL” y “ARG”. La eliminación deberá ser cascada y borrará sus cuidades y lenguajes correspondientes.
 		 */
 
+		/*
 		// Eliminar los países "COL" y "ARG" (y sus ciudades y lenguajes en cascada)
 		List<String> ids = List.of("COL", "ARG");
 
 		ids.stream().filter(countryRepository::existsById).collect(Collectors.toList());
-
 		if (!ids.isEmpty()) {
 			countryRepository.deleteAllById(ids);
 			System.out.println("Países eliminados: " + ids);
         } else{
 			System.out.println("Ids no existen en BD");
 		}
-
+		*/
 
 	}
 }

@@ -10,18 +10,17 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String district;
+    private Integer population;
 
     @ManyToOne
     @JoinColumn(name = "CountryCode")
     private Country country;
-    private String district;
-    private Integer population;
 
 }
