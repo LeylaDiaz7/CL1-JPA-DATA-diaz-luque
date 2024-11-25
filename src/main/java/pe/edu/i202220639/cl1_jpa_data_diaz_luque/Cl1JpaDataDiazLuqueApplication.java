@@ -8,9 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pe.edu.i202220639.cl1_jpa_data_diaz_luque.entity.Country;
 import pe.edu.i202220639.cl1_jpa_data_diaz_luque.repository.CountryRepository;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 @Transactional
